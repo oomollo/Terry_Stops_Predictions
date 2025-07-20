@@ -11,10 +11,16 @@ This project aims to analyze historical Terry Stop data to uncover patterns asso
 Key Business Questions:
 
 • Are certain age groups more likely to be arrested during a Terry Stop?
+
 • Does the subject’s perceived race or gender influence the likelihood of an arrest or frisk?
+
 • How do arrest and frisk rates vary across different subject age groups?
+
 • Do officer demographics (e.g., gender, race, age) influence arrest outcomes?
+
 • Are there patterns in arrest decisions linked to specific officers or squads?
+
 • Are subjects more likely to be frisked or arrested when certain weapon types are involved?
+
 • Are certain precincts, sectors, or beats more prone to arrests or frisks?
 
