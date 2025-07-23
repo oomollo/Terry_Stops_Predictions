@@ -24,3 +24,77 @@ Key Business Questions:
 
 • Are certain precincts, sectors, or beats more prone to arrests or frisks?
 
+### Dataset Summary
+
+Source: Terry Stop reports
+
+Features Used:
+
+Subject Age Group
+
+Weapon Type
+
+Frisk Flag
+
+Officer Gender and Race
+
+Subject Perceived Gender and Race
+
+Initial Call Type
+
+Reported Year
+
+Target Variable: Arrest Flag (0 = No Arrest, 1 = Arrest)
+
+## Data Preparation
+
+1. Cleaned and standardized the dataset
+
+2. One-hot encoded categorical features
+
+3. Scaled numerical features using StandardScaler
+
+4. Addressed class imbalance using resampling techniques
+
+## Models Used
+
+1. Logistic Regression
+
+Simple, interpretable baseline model
+
+Performs well on majority class (no arrest) but struggles on minority class (arrest)
+
+ROC-AUC: 0.9734
+
+2. Random Forest
+
+Ensemble model capturing complex patterns
+
+Better performance on arrest prediction with improved recall
+
+ROC-AUC: 0.9741
+
+## Feature Importance Insights
+
+**Weapon Type (None)** and **Frisk Flag** were the top predictors of arrest.
+
+Subjects frisked were significantly more likely to be arrested.
+
+Arrests often occurred even when no weapon was present.
+
+## Conclusion
+
+**Logistic Regression** demonstrates high performance on the majority class (non-arrest), with precision and recall values of 0.99 and 0.96 respectively. However, it underperforms on the minority class (arrest), yielding a precision of 0.45 and recall of 0.73. Despite its strong ROC-AUC score of 0.9734, the model struggles with class imbalance, making it less effective at correctly identifying positive arrest instances. Nonetheless, its simplicity, interpretability, and computational efficiency make it suitable for baseline modeling or when model transparency is required.
+
+
+**Random Forest** provides a more balanced classification capability across both classes. It achieves similar overall accuracy (95.03%) and a slightly higher ROC-AUC score (0.9741), while improving recall for the arrest class to 0.80. This indicates better sensitivity to the minority class. Random Forest is more robust in handling imbalanced datasets and capturing complex feature interactions, making it a better fit when maximizing recall and overall detection of arrest outcomes is a priority.
+
+
+## Recommendations
+
+Use **Random Forest** for operational prediction tasks due to better arrest detection performance.
+As shown in feature importance analysis:
+
+**Weapon Type (None)**: This was the strongest predictor of arrest likelihood. It suggests that the absence of a weapon is strongly associated with decisions not to arrest, possibly indicating a lower perceived threat.
+
+**Frisk Flag**: The presence of a frisk is another strong signal, likely correlated with heightened suspicion or safety concerns during the stop.
